@@ -1,0 +1,105 @@
+const ques = [
+    {
+        Q: 'What is my name______?',
+        options: ['snehal joshi', 'vaishnavi lonkar', 'neha yogi', 'ritu patil']
+    },
+    {
+        Q: 'When did India enact the Wildlife Protection Act?',
+        options: ['2001', '1989', '1847', '1972']
+    },
+    {
+        Q: 'Which Vitamin is known as anti sterility vitamin?',
+        options: ['Vitamin B', 'Vitamin E', 'Vitamin C', 'Vitamin A']
+    },
+    {
+        Q: 'What is the capital of India?',
+        options: ['Mumbai', 'Chennai', 'New Delhi', 'Hyderabad']
+    },
+    {
+        Q: 'Which planet is known as the red planet?',
+        options: ['Mars', 'Jupiter', 'Venus', 'Saturn']
+    },
+    {
+        Q: 'You Have Completed Successfully!',
+        options: []
+    }
+];
+
+const ans = ['vaishnavi lonkar', '1972', 'Vitamin E', 'New Delhi', 'Mars'];
+
+const question = document.querySelector('#ques');
+const next = document.querySelector('#nxt');
+const opt = document.querySelectorAll('.box2');
+const tryagn = document.querySelector('.btn');
+const box = document.querySelector('.box');
+const win = document.querySelector('.win');
+
+let m = 0;
+
+function resetOptions() {
+    opt.forEach(optElement => {
+        optElement.classList.remove('correct', 'incorrect');
+        optElement.style.display = 'block';
+    });
+    win.style.display = 'none';
+    next.style.display = 'none';
+}
+
+function quiz() {
+    resetOptions();
+
+    // Display the current question
+    question.innerHTML = ques[m].Q;
+
+    if (ques[m].options.length === 0) {
+        opt.forEach(optElement => optElement.style.display = 'none');
+    } else {
+        // Update options
+        opt.forEach((optElement, index) => {
+            if (index < ques[m].options.length) {
+                optElement.innerHTML = ques[m].options[index];
+            } else {
+                optElement.style.display = 'none';
+            }
+        });
+
+        // Add event listeners to options
+        opt.forEach(item => {
+            item.removeEventListener('click', handleOptionClick); // Remove old listeners
+            item.addEventListener('click', handleOptionClick);
+        });
+    }
+}
+
+function handleOptionClick(e) {
+    let value = e.target.innerText;
+
+    if (value == ans[m]) {
+        e.target.classList.add('correct');
+        next.style.display = 'flex';
+    } else {
+        box.style.display = 'none';
+        e.target.classList.add('incorrect');
+        win.style.display = 'block';
+        tryagn.style.display = 'flex';
+    }
+}
+
+next.addEventListener('click', () => {
+    m++;
+    if (m < ques.length) {
+        quiz();
+        if (m === ques.length - 1) {
+            document.querySelector('.ans').style.display = 'none';
+            next.style.display = 'none';
+            document.querySelector('.hding').style.display = 'none';
+        }
+    }
+});
+
+tryagn.addEventListener('click', () => {
+    location.reload(true);
+});
+
+// Initialize quiz
+quiz();
