@@ -1,0 +1,106 @@
+*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    body{
+        overflow:hidden;
+        background: linear-gradient(45deg , rgb(172, 23, 43),rgb(218, 42, 218));
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+     .hding{
+        margin-bottom: 20px;
+     }
+
+     .box{
+        padding: 15px;
+        min-width: 100px;
+        max-width: 500px;
+        height: auto;
+        box-shadow: 0 0 12px 7px rgb(114, 9, 17);
+        border-radius: 10px;
+     }
+    
+     .ques{
+        padding: 10px;
+        margin-bottom: 20px;
+     }
+
+     .ans{
+      padding: 5px;
+     }
+      
+     .box1{
+      display: flex;
+      box-shadow: 5px 5px 5px 2px rgb(211, 40, 160);
+      padding: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      background-color: rgb(172, 6, 108);
+      border-radius: 10px;
+      padding: 15px;
+     }
+   
+     .box1:active, .box1:hover{
+      box-shadow: 0 0 5px 2px rgb(119, 15, 24);
+     }
+     
+     .box2{
+      padding-left: 5px;
+      width: 100px;
+      height: 100%;
+     }
+     
+     .nxt{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px 2px rgb(158, 23, 86);
+      border-radius: 10px;
+      background: linear-gradient(to left,rgb(167, 56, 152),rgb(175, 62, 71));
+      margin-bottom: 10px;
+     }
+     
+   .nxt:active{
+      transform: scale(0.95);
+   }
+   
+   .win{
+      display: none;
+   }
+
+   .win h1{
+      font-family: cursive,Verdana, Geneva, Tahoma, sans-serif;
+      margin: 15px;
+   }
+    
+   
+
+.box2.correct {
+   background-color: green;
+   color: white; /* Optional for better readability */
+}
+
+.box2.incorrect {
+   background-color: red;
+   color: white; /* Optional for better readability */
+}
+
+
+
+
+
+
+
+
+
